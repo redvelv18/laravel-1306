@@ -1,4 +1,11 @@
 <h1>New book</h1>
+<x-layout>
+
+    <x-slot:title>
+
+        Custom Title
+
+    </x-slot>
 
 <form action="/books/store" method="post">
     @csrf
@@ -24,3 +31,4 @@
 </div>
 
 @endif
+</x-layout>

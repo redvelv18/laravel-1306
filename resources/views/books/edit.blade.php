@@ -1,4 +1,11 @@
 <h1>Edit book</h1>
+<x-layout>
+
+    <x-slot:title>
+
+        Custom Title
+
+    </x-slot>
 
 <form action="/books/{{ $book->id }}/update" method="post">
     @csrf
@@ -9,3 +16,4 @@
     <input type="date" name="released_at" placeholder="date goes here" value="{{ $book->released_at }}">
     <input type="submit" value="Update">
 </form>
+</x-layout>

@@ -1,5 +1,11 @@
 <h1>Books</h1>
-<a href="/books/create">Create a book</a>
+<x-layout>
+
+    <x-slot:title>
+
+        Custom Title
+
+    </x-slot>
 <ul>
     @foreach($books as $book)
         <li>
@@ -22,3 +28,4 @@
     </div>
     @endif
 </ul>
+</x-layout>
