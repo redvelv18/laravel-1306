@@ -9,7 +9,7 @@
                 <a href="/books/{{ $book->id }}">Show</a>
                 <a href="/books/{{ $book->id }}/edit">Edit</a>
             </div>
-            <form action="destroy", method="post">
+            <form action="/books/{{ $book->id }}/destroy", method="get">
                 @csrf
                 @method("DELETE")
                 <button>Delete</button>
