@@ -4,10 +4,16 @@
     @foreach($books as $book)
         <li>
             <h2>{{ $book->title }}</h2>
+            <p>{{ $book->author }}</p>
             <div>
                 <a href="/books/{{ $book->id }}">Show</a>
                 <a href="/books/{{ $book->id }}/edit">Edit</a>
             </div>
+            <form action="destroy", method="post">
+                @csrf
+                @method("DELETE")
+                <button>Delete</button>
+            </form>
         </li>
     @endforeach
 </ul>

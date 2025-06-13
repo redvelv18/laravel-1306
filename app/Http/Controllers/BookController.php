@@ -28,7 +28,7 @@ class BookController extends Controller
 
     public function show($id) {
         $book = Book::find($id);
-        return view('books.show', ['singleBook' => $book]);
+        return view('books.show', ['book' => $book]);
     }
 
     public function edit($id) {
@@ -45,6 +45,11 @@ class BookController extends Controller
             'released_at' => $request['released_at'],
         ]);
 
-        return redirect('/books/' . $book->id);
+        return redirect('/books/' . $book->id).with('status','post updated successfully!');
+    }
+    public function destroy($id) {
+        $book = Book::find($id);
+        delete($book);
+        
     }
 }
