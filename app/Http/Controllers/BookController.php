@@ -9,7 +9,7 @@ class BookController extends Controller
 {
     public function index() {
         $books = Book::all();
-        return view('books.index');
+        return view('books.index', ['books' => $books]);
     }
 
     public function create() {
@@ -33,6 +33,7 @@ class BookController extends Controller
 
     public function edit($id) {
         $book = Book::find($id);
+        return view('books.edit', ['book'=>$book]);
         return $book;
     }
 

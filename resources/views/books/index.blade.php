@@ -1,7 +1,7 @@
 <h1>Books</h1>
-<a href="/books/create/form">Create a book</a>
+<a href="/books/create">Create a book</a>
 <ul>
-    @foreach($allTheBooks as $book)
+    @foreach($books as $book)
         <li>
             <h2>{{ $book->title }}</h2>
             <div>
