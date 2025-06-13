@@ -23,7 +23,7 @@ class BookController extends Controller
             'released_at' => $request['released_at'],
         ]);
 
-        return redirect('/books/' . $book->id);
+        return redirect('/books/' . $book->id)->with('status','book created successfully!');
     }
 
     public function show($id) {
@@ -45,13 +45,13 @@ class BookController extends Controller
             'released_at' => $request['released_at'],
         ]);
 
-        return redirect('/books/' . $book->id).with('status','post updated successfully!');
+        return redirect('/books/' . $book->id)->with('status','post updated successfully!');
     }
     public function destroy($id) {
         $book = Book::find($id);
         if ($book) {
             $book->delete();
         }
-        return redirect('/books/');
+        return redirect('/books/')->with('status','book deleted successfully');
     }
 }
