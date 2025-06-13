@@ -17,13 +17,19 @@ class BookController extends Controller
     }
 
     public function store(Request $request) {
-        $book = Book::create([
-            'title' => $request['title'],
-            'author' => $request['author'],
-            'released_at' => $request['released_at'],
+        $validated = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'author' => 'required|max:100',
+            'released_at' => 'required|date' 
         ]);
-
-        return redirect('/books/' . $book->id)->with('status','book created successfully!');
+    
+        $book = Book::create([
+            'title' => $validated['title'], 
+            'author' => $validated['author'], 
+            'released_at' => $validated['released_at'], 
+        ]);
+    
+        return redirect()->route('books.show', $book->id)->with('status', 'Book created successfully!');
     }
 
     public function show($id) {

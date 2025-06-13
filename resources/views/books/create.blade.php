@@ -7,3 +7,20 @@
     <input type="date" placeholder="date goes here" name="released_at">
     <input type="submit" value="Create">
 </form>
+@if ($errors->any())
+
+<div class="alert alert-danger">
+
+    <ul>
+
+        @foreach ($errors->all() as $error)
+
+            <li>{{ $error }}</li>
+
+        @endforeach
+
+    </ul>
+
+</div>
+
+@endif
